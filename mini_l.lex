@@ -55,8 +55,9 @@ INVALID_ID_START_UNDERSCORE "_"+{IDENTIFIER}
 "<=" {currPos += yyleng; return LTE;}
 ">=" {currPos += yyleng; return GTE;}
 
-{IDENTIFIER} {currPos += yyleng; yylval.identval = yytext; return IDENT;}
-{DIGIT}+ {currPos += yyleng; yylval.ival = atoi(yytext); return NUMBER;}
+
+{IDENTIFIER} {yylval.identval = strdup(yytext); currPos += yyleng; return IDENT;}
+{DIGIT}+ {yylval.ival = atoi(yytext); currPos += yyleng;  return NUMBER;}
 {WHITESPACE} {currPos += yyleng;}
 {NEWLINE} {currLine += 1; currPos = 0;}
 {INVALID_ID_START_NUMBER} {printf("Error at line %d, column %d: identifier \"%s\" must begin with a letter\n", currLine, currPos, yytext); exit(0);}

@@ -24,7 +24,7 @@
 
 
 %% 
-Program: Function Program {printf("Program -> Function Program");}
+Program: Function Program {printf("Program -> Function Program\n");}
 	| /*e*/ {printf ("Program -> Epsilon\n");}
 ;
 
@@ -39,7 +39,7 @@ Declaration_Body: Identifier COLON INTEGER {printf("Delcaration_Body -> Identifi
 		| Identifier COLON ARRAY L_SQUARE_BRACKET NUMBER R_SQUARE_BRACKET OF INTEGER {printf("Declaration_body -> Identifier COLON ARRAY L_SQUARE_BRACKET NUMBER R_SQUARE_BRACKET OF INTEGER\n");}
 ;
 
-Identifier: IDENT {printf("Identifier -> IDENT\n");}
+Identifier: IDENT {printf("Identifier -> IDENT %s\n", $1);}
 	| IDENT COMMA Identifier {printf("Identifier -> IDENT COMMA Identifier\n");}
 ;
 

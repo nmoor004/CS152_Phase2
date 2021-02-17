@@ -1,0 +1,20 @@
+Identifier -> IDENT
+Declaration -> Epsilon
+Identifier -> IDENT
+Delcaration_Body -> Identifier COLON INTEGER
+Declaration -> Epsilon
+Declaration -> Declaration_Body SEMICOLON Declaration
+Identifier -> IDENT
+Var -> Identifier
+Statement_Body -> READ Var
+Statement -> Statement_Body SEMICOLON
+Identifier -> IDENT
+Var -> Identifier
+Identifier -> IDENT
+Var -> Identifier
+Term_Body -> Var
+Term -> Term_Body
+Mult_Expr -> Term
+Term_Body -> NUMBER
+Term -> Term_Body
+Error at line 9, column 11: unrecognized symbol "?"
